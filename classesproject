@@ -7,34 +7,38 @@ class doctor:
     self.working_time = working_time
     self.qualification = qualification
     self.room_number = room_number
-  def description(self):
+  def __str__(self):
     return f'{self.name} with employee id{self.id} is a doctor.'
 
 class facility:
   information = 'facility information'
-  def __init__(facility_name) -> None:
+  def __init__(self, facility_name) -> None:
     self.facility_name = facility_name
-  def description(self):
+  def __str__(self):
     return f'{self.facility_name} is a facility location.'
 
 class laboratory:
   information = 'laboratory information'
-  def __init__(lab_name, cost) -> None:
+  def __init__(self, lab_name, cost) -> None:
     self.lab_name = lab_name
     self.cost = cost
-  def description(self):
+  def __str__(self):
     return f'{self.lab_name} is a lab location.'
 
 class patient:
   information = 'patient information'
-  def __init__(pid, name, disease, gender, age) -> None:
+  def __init__(self, pid, name, disease, gender, age) -> None:
     self.pid = pid
     self.name = name
     self.disease = disease
     self.gender = gender
     self.age = age
-  def description(self):
-    return f'{self.lab_name} is a lab location.'
+  def __str__(self):
+    return f'{self.name} is a {self.age} year old {self.gender} affected with {self.disease}'
 
 #class 5:management
 #create a function called displaymenu to display the menu shown in sample
+
+#Test Code
+test = patient("3--1393-23" , "John", "Cancer", "Male", 29)
+print(test)
