@@ -3,7 +3,7 @@ classesproject.py
 
 Written by Tyler Hynes, Coltan Rozander, and Evan Synnott-Hilliard
 
-This Program does things
+This Program trys to do things
 
 '''
 import re
