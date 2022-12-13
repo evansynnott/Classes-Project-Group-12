@@ -12,7 +12,7 @@ from Hospital import Facility as Fac
 from Hospital import Patient as Pat
 
 
-def doctorMenu():
+def doctorMenu(): #This is a menu to display the contents of the Doctors class
     runMenu = True
     while runMenu == True:
         print("\nDoctors Menu: \n1 - Display Doctors list \n2 - Search for doctor by ID\n3 - Search for doctor by name \n4 - Add doctor \n5 - Edit doctor info \n6 - Back to the Main Menu")
@@ -36,7 +36,7 @@ def doctorMenu():
             runMenu = False
             return
 
-def FacMenu():
+def FacMenu(): #This is a menu to display the contents of the Facilty class
     runMenu = True
     while runMenu == True:
         print("\nFacilities Menu:\n1 - Display Facilities list\n2 - Add Facility\n3 - Back to the Main Menu")
@@ -52,7 +52,7 @@ def FacMenu():
             runMenu = False
             return  
 
-def labMenu():
+def labMenu(): #This is a menu to display the contents of the Laboratory class
     runMenu = True
     while runMenu == True:
         print("\nLaboratories Menu:\n1 - Display laboratories list\n2 - Add laboratory\n3 - Back to the Main Menu")
@@ -68,7 +68,7 @@ def labMenu():
             runMenu = False
             return
 
-def PatMenu():
+def PatMenu(): #This is a menu to display the contents of the Patients class
     runMenu = True
     while runMenu == True:
         print("\nPatients Menu: \n1 - Display patients list \n2 - Search for patient by ID\n3 - Add patient \n4 - Edit patient info \n5 - Back to the Main Menu")
@@ -89,7 +89,7 @@ def PatMenu():
             runMenu = False
             return
 
-runProgram = True
+runProgram = True #Main Code
 while runProgram == True:
     print("\nWelcome to Alberta Hospital (AH) Managment system \nSelect from the following options, or select 0 to stop: \n1 - Doctors \n2 - Facilities\n3 - Laboratories \n4 - Patients")
     userInput = input()
@@ -105,3 +105,4 @@ while runProgram == True:
         PatMenu()
     elif int(userInput) == 0:
         runProgram = False
+

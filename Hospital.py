@@ -9,7 +9,7 @@ This Program does things
 import re
 
 
-class Doctor:
+class Doctor: 
     def __init__(self, id, name, specialization, working_time, qualification, room_number) -> None:
         self.id = id
         self.name = name
@@ -21,7 +21,7 @@ class Doctor:
     def __str__(self):
         return f'{self.name} with employee id{self.id} is a doctor.'
 
-    def formatDrInfo(propertiesValuesList):
+    def formatDrInfo(propertiesValuesList): #Formats each doctor’s information (properties) in the same format used in the .txt file (i.e., has underscores between values)
         spaces = [5, 23, 16, 16, 16, 12]
         formattedText = ""
 
@@ -30,7 +30,7 @@ class Doctor:
                 (" " * (spaces[propertiesValuesList.index(item)] - len(item)))
         return formattedText
 
-    def enterDrInfo(self):
+    def enterDrInfo(self): #Asks the user to enter doctor properties (listed in the Properties point)
         self.id = input("Enter the Doctor's ID: \n")
         self.name = input("Enter the Doctor's name: \n")
         self.specialization = input("Enter the Doctor's specialty: \n")
@@ -41,7 +41,7 @@ class Doctor:
 
         self.addDrToFile(self)
 
-    def readDoctorsFile():
+    def readDoctorsFile(): #Reads from “doctors.txt” file and fills the doctor objects in a list
         path = "data\doctors.txt"
         doctorsObjectList = []
         try:
@@ -63,7 +63,7 @@ class Doctor:
 
         return doctorsObjectList
 
-    def searchDoctorById(idSearch):
+    def searchDoctorById(idSearch): #Searches whether the doctor is in the list of doctors/file using the doctor ID that the user enters
         doctorsObjectList = Doctor.readDoctorsFile()
         idExist = False
         for doctor in doctorsObjectList:
@@ -75,7 +75,7 @@ class Doctor:
             print("Can't find the doctor with the same ID on the system \n")
             return -1
 
-    def searchDoctorByName(nameSearch):
+    def searchDoctorByName(nameSearch): #Searches whether the doctor is in the list of doctors/file using the doctor name that the user enters
         doctorsObjectList = Doctor.readDoctorsFile()
         nameExist = False
 
@@ -87,7 +87,7 @@ class Doctor:
             print("Can't find the doctor with the same name on the system \n")
             return -1
 
-    def displayDoctorInfo(self):
+    def displayDoctorInfo(self): #Displays doctor information on different lines, as a list
         headerList = ["ID", "Name", "Specialty",
                       "Timing", "Qualification", "Room Number"]
         print(Doctor.formatDrInfo(headerList) + "\n")
@@ -95,7 +95,7 @@ class Doctor:
                       self.workingTime, self.qualification, self.roomNumber]
         print(Doctor.formatDrInfo(valuesList))
 
-    def readDoctorsFile():
+    def readDoctorsFile(): #Asks the user to enter the ID of the doctor to change their information, and then the user can enter the new doctor information
         path = "data\doctors.txt"
         doctorsObjectList = []
         try:
@@ -116,7 +116,7 @@ class Doctor:
 
         return doctorsObjectList
 
-    def displayDoctorsList():
+    def displayDoctorsList(): #Displays all the doctors’ information, read from the file, as a report/table
         path = "data\doctors.txt"
         headerList = ["ID", "Name", "Specialty",
                       "Timing", "Qualification", "Room Number"]
@@ -131,7 +131,7 @@ class Doctor:
                 print(line)
         file.close()
 
-    def writeListOfDoctorsToFile(doctorsObjectList):
+    def writeListOfDoctorsToFile(doctorsObjectList): #Writes the list of doctors to the doctors.txt file after formatting it correctly
         path = "data\doctors.txt"
         file = open(path, "r+")
         textOutput = ""
@@ -145,7 +145,7 @@ class Doctor:
         file.write(textOutput)
         file.close()
 
-    def addDrToFile(drObject):
+    def addDrToFile(drObject): #Writes doctors to the doctors.txt file after formatting it correctly
         path = "data\doctors.txt"
         textOutput = ""
 
@@ -169,14 +169,14 @@ class Facility:
     def __str__(self):
         return f'{self.facility_name} is a facility location.'
 
-    def addFacility(self):
+    def addFacility(self): #Displays the list of facilities
         fname = input("Enter Facility name: \n")
         self.name = fname
         path = "data\facilities.txt"
         with open(path, "a") as file:
             file.write(self.name + "\n\n")
 
-    def displayFacilities():
+    def displayFacilities(): #Displays the list of facilities
         print("The Hospital  Facilities are: \n\n")
         path = "data\facilities.txt"
         with open(path, "r") as file:
@@ -184,7 +184,7 @@ class Facility:
             for line in lines:
                 print(line)
 
-    def writeListOfFacilitiesToFile(facilityList):
+    def writeListOfFacilitiesToFile(facilityList): #Writes the facilities list to facilities.txt
         path = "data\faclities.txt"
         with open(path, "r+") as file:
             for facility in facilityList:
@@ -201,7 +201,7 @@ class Laboratory:
     def __str__(self):
         return f'{self.lab_name} is a lab location.'
 
-    def addLabToFile(labObject):
+    def addLabToFile(labObject): #Adds and writes the lab name to the file in the format of the data that is in the file
         path = "data\laboratories.txt"
         textOutput = ""
 
@@ -213,7 +213,7 @@ class Laboratory:
         file.write(textOutput)
         file.close()
 
-    def writeListOfLabsToFile(labObjectsList):
+    def writeListOfLabsToFile(labObjectsList): #Writes the list of labs into the file laboratories.txt
         path = "data\laboratories.txt"
         file = open(path, "r+")
         textOutput = ""
@@ -226,7 +226,7 @@ class Laboratory:
         file.write(textOutput)
         file.close()
 
-    def displayLabList():
+    def displayLabList(): #Writes the list of labs into the file laboratories.txt
         path = "data\laboratories.txt"
         headerList = ["Lab", "Cost"]
         print(Laboratory.formatLabInfo(headerList))
@@ -236,7 +236,7 @@ class Laboratory:
                 print(line)
         file.close()
 
-    def formatLabInfo(propertiesValuesList):
+    def formatLabInfo(propertiesValuesList): #Formats the Laboratory object similar to the laboratories.txt file
         spaces = [16, 16]
         formattedText = ""
 
@@ -245,13 +245,13 @@ class Laboratory:
                 (" " * (spaces[propertiesValuesList.index(item)] - len(item)))
         return formattedText
 
-    def enterLaboratoryInfo(self):
+    def enterLaboratoryInfo(self): #Asks the user to enter lab name and cost and forms a Laboratory object
         self.name = input("Enter Laboratory facility: \n")
         self.cost = input("Enter Laboratory cost: \n")
 
         Laboratory.addLabToFile(self)
 
-    def readLaboratoriesFile():
+    def readLaboratoriesFile(): #Reads the laboratories.txt file and fills its contents in a list of Laboratory objects
         path = "data\laboratories.txt"
         labsObjectList = []
         try:
@@ -284,22 +284,22 @@ class Patient:
     def __str__(self):
         return f'{self.name} is a {self.age} year old {self.gender} affected with {self.disease}'
 
-    def formatPatientInfo(propertiesValuesList):
+    def formatPatientInfo(propertiesValuesList): #Formats patient information to be added to the file
         spaces = [5, 23, 16, 16, 16]
         formattedText = ""
         for item in propertiesValuesList:
             formattedText += item + \
-                (" " * (spaces[propertiesValuesList.index(item)] - len(item)))
+                (" " * (spaces[propertiesValuesList.index(item)] - len(item))) #
         return formattedText
 
-    def enterPatientInfo(self):
+    def enterPatientInfo(self): #Asks the user to enter the patient info 
         self.id = input("Enter the Patients's ID: \n")
         self.name = input("Enter the Patients's name: \n")
         self.disease = input("Enter the Patient's Disease: \n")
         self.gender = input("Enter the Patient's Gender: \n")
         self.age = input("Enter the Patient's Age: \n")
 
-    def readPatientsFile():
+    def readPatientsFile(): #Reads from file patients.txt
         path = "data\patients.txt"
         patientsObjectList = []
         try:
@@ -321,7 +321,7 @@ class Patient:
 
         return patientsObjectList
 
-    def searchPatientById(idSearch):
+    def searchPatientById(idSearch): #Searches for a patient using their ID
         patientsObjectList = Patient.readPatientsFile()
         idExist = False
         for patient in patientsObjectList:
@@ -333,13 +333,13 @@ class Patient:
             print("Can't find the doctor with the same ID on the system \n")
             return -1
 
-    def displayPatientInfo(self):
+    def displayPatientInfo(self): #Displays patient info
         headerList = ["ID", "Name", "Disease", "Gender", "Age"]
         print(Patient.formatPatientInfo(headerList) + "\n")
         valuesList = [self.id, self.name, self.disease, self.gender, self.age]
         print(Patient.formatPatientInfo(valuesList))
 
-    def editPatientInfo():
+    def editPatientInfo(): #Asks the user to edit patient information
         pt_Id = input(
             "Please enter the id of the doctor that you want to edit their information:\n")
         pt_index = Patient.searchPatientById(pt_Id)
@@ -353,7 +353,7 @@ class Patient:
         else:
             return -1
 
-    def displayPatientsList():
+    def displayPatientsList(): #Displays the list of patients
         path = "\data\patients.txt"
         headerList = ["ID", "Name", "Disease", "Gender", "Age"]
         headerSpaces = [5, 23, 16, 16, 16]
@@ -367,7 +367,7 @@ class Patient:
                 print(line)
         file.close()
 
-    def writeListOfPatientsToFile(patientsObjectList):
+    def writeListOfPatientsToFile(patientsObjectList): #Writes a list of patients into the patients.txt file
         path = "data\patients.txt"
         file = open(path, "r+")
         textOutput = ""
@@ -380,7 +380,7 @@ class Patient:
         file.write(textOutput)
         file.close()
 
-    def addPatientToFile(ptObject):
+    def addPatientToFile(ptObject): #Adds a new patient to the file
         path = "data\patients.txt"
         textOutput = ""
 
@@ -392,6 +392,3 @@ class Patient:
         textOutput += addText + "\n\n"
         file.write(textOutput)
         file.close()
-
-
-Doctor.readDoctorsFile()
